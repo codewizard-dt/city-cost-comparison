@@ -6,12 +6,12 @@
   --red: rgb(217, 86, 74);
 }
 
-/* 
-Font Families
+
+/* Font Families
 Tinos -- Large Headers, Serif
 Source Sans Pro -- Midsize Headers, Sans Serif
-Pridi -- text, serif
-*/
+Pridi -- text, serif */
+
 
 body {
   font-family: 'Pridi', serif;
