@@ -1,3 +1,48 @@
+:root {
+  --blue: rgb(136, 182, 242);
+  --green: rgb(156, 217, 171);
+  --light-green: rgb(180, 217, 189);
+  --yellow: rgb(242, 202, 128);
+  --red: rgb(217, 86, 74);
+}
+
+/* 
+Font Families
+Tinos -- Large Headers, Serif
+Source Sans Pro -- Midsize Headers, Sans Serif
+Pridi -- text, serif
+*/
+
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Pridi', serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-family: 'Tinos', serif;
+}
+h2,h3,h4,h5,h6 {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.bg-green {
+  background-color: var(--green);
+}
+
+.bg-lightgreen {
+  background-color: var(--lightgreen);
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
+}
+
+.bg-red {
+  background-color: var(--red);
+  color: white;
 }
