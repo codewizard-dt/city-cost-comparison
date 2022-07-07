@@ -14,6 +14,14 @@ const GeoApi = {
     }
   },
   results: [],
+  current: null,
+  get currentCity() {
+    return this.current
+  },
+  set currentCity(city) {
+    this.cacheToLocal(city)
+    this.current = city
+  },
   search: async function (string) {
     try {
       if (!string) throw { error: 'Search term required' }
@@ -46,6 +54,10 @@ const GeoApi = {
     stored.unshift(city)
     this.cache = stored
   },
+  findById: function (id) {
+    let stored = this.cache
+    return stored.find(cached => cached.id === id)
+  },
   renderResults: function () {
     console.log('RENDER GEO RESULTS HERE')
     for (let city of this.results) {
@@ -69,19 +81,29 @@ const CostApi = {
       'X-RapidAPI-Host': 'cost-of-living-and-prices.p.rapidapi.com'
     }
   },
-  data: {},
+  current: null,
+  get currentCity() {
+    return this.current
+  },
+  set currentCity(city) {
+    this.current = city
+    this.cacheToLocal(city)
+    this.updateCategories()
+  },
   /**
    * Searches for cost data based on `cityGeoDb` which must include a `id` attribute, `city` attribute, and `country` attribute
    * @param {object} cityGeoDb a response object from the GeoApi
    * @returns combined geo and cost data
    */
   getCityData: async function (cityGeoDb) {
-    GeoApi.cacheToLocal(cityGeoDb)
+    GeoApi.currentCity = cityGeoDb
     let { id, city, country } = cityGeoDb
-    // let stored = this.cache.find(city => city.geo_id === id)
-    // if (stored) {
-    //   return stored
-    // }
+    let stored = this.cache.find(city => city.geo_id === id)
+    if (stored) {
+      console.log('got from cache', stored)
+      this.currentCity = stored
+      return stored
+    }
     if (country === 'United States of America') country = 'United States'
     try {
       if (!city || !country) throw { error: 'City and country required' }
@@ -89,9 +111,7 @@ const CostApi = {
       const data = await response.json()
       if (data.error) throw data
       data.geo_id = cityGeoDb.id
-      this.data = data
-      this.updateCategories()
-      this.cacheToLocal(data)
+      this.currentCity = data
       return data
     } catch (error) {
       console.error(error)
@@ -101,8 +121,8 @@ const CostApi = {
   categories: [],
   updateCategories: function () {
     this.categories = []
-    if (this.prices) {
-      this.prices.forEach(({ category_name, category_id }) => {
+    if (this.currentCity.prices) {
+      this.currentCity.prices.forEach(({ category_name, category_id }) => {
         if (!this.categories.find(cat => category_id === cat.category_id)) this.categories.push({ category_name, category_id })
       })
     }
@@ -120,12 +140,15 @@ const CostApi = {
     stored.unshift(city)
     this.cache = stored
   },
-  renderData: function (data) {
-    /** After data is retrieved update the DOM
-     * Data is stored in `CostApi.combinedData` ie `this.combinedData` if accessed within this function
+  renderCityCosts: function (costData) {
+    /** Render elements related to city
      * Display main demographic data 
      * Display 'category' or 'goods' cards as well
      */
+    console.log(this)
+    // if (!costData) costData = this.currentCity
+    // let geoData = GeoApi.findById(costData.geo_id)
+    // console.log({costData,geoData})
   }
 }
 
@@ -151,7 +174,7 @@ async function demo() {
   }
   console.log('COST DATA', data)
   if (data.error) throw { error: 'No cities found' }
-  else CostApi.renderData()
+  else CostApi.renderCityCosts()
 }
 
 demo()
