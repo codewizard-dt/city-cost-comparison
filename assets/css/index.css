@@ -19,37 +19,12 @@
   --red: #d9564a;
 }
 
-<<<<<<< HEAD
 
 /* Font Families
 Tinos -- Large Headers, Serif
 Source Sans Pro -- Midsize Headers, Sans Serif
 Pridi -- text, serif */
 
-=======
-/* 
-Font Families
-h1, h2, h3, h4, h5, h6 {
-Tinos -- Large Headers, Serif
-Source Sans Pro -- Midsize Headers, Sans Serif
-Pridi -- text, serif
-*/
-h1,
-h2,
-h3 {
-  font-family: 'Tinos', 'Serif';
-  color: var(--light-green);
-  /* var(--yellow); */
-}
-
-h4,
-h5,
-h6 {
-  font-family: 'Source Sans Pro', 'Serif';
-  color: var(--light-green);
-  /* var(--yellow); */
-}
->>>>>>> 4bc3e8497cc7ea5fbf454e0480b71edaa893be86
 
 body {
 
@@ -78,7 +53,7 @@ body {
 .results-panel {
   border: solid black 1px;
   margin-top: 2%;
-  height: 40vh;
+  min-height: 40vh;
 }
 
 
