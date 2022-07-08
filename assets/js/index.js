@@ -148,6 +148,8 @@ const CostApi = {
     if (!costData) costData = this.currentCity
     let geoData = GeoApi.findById(costData.geo_id)
     console.log('Available For Rendering', { costData, geoData })
+    console.log('Sample Price Data', costData.prices[0])
+    console.log('Sample Category', this.categories[0])
   }
 }
 
