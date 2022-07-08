@@ -10,7 +10,7 @@ $(document).ready(function () {
  * Defines an API that searches for cities based on name
  * https://wft-geo-db.p.rapidapi.com/v1/geo/cities
  */
-export const GeoApi = {
+const GeoApi = {
   params: { sort: '-population', limit: 10 },
   getParams: function () {
     return Object.entries(this.params).map(([key, val]) => `${key}=${val}`).join('&')
@@ -98,7 +98,7 @@ $('#searchByName').find('form').on('submit', GeoApi.handleSearch)
  * Defines an API that retrieves prices for more than 60 goods and services for more than 8000 cities
  * https://rapidapi.com/traveltables/api/cost-of-living-and-prices/
  */
-export const CostApi = {
+const CostApi = {
   fetchOptions: {
     method: 'GET',
     headers: {
@@ -181,7 +181,6 @@ export const CostApi = {
     console.log('Sample Category', this.categories[0])
   }
 }
-
 
 
 /**
