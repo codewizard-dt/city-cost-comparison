@@ -53,11 +53,12 @@ body {
   max-width: 95%;
   display: flex;
   flex-direction: column;
+
   margin-top: 5%;
 }
 
 
-nav {
+.nav {
   height: 90px !important;
 }
 

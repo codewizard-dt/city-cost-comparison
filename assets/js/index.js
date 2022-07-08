@@ -1,6 +1,12 @@
 
 // console.log('linked')
 
+$(document).ready(function(){
+    $('.tabs').tabs();
+  });
+        
+// console.log('linked')
+
 $(document).ready(function () {
   $('.tabs').tabs();
 });
@@ -214,3 +220,4 @@ async function demo() {
 
 // RUN DEMO
 // demo()
+
