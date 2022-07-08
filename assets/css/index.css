@@ -41,6 +41,36 @@ body {
   margin-top: 5%;
 }
 
+.input-field {
+  background: white;
+}
+
+.card {
+
+  padding: 10px;
+  border-radius: 5px;
+
+}
+
+.container-nav {
+
+  display: flex;
+  align-self: left;
+  flex-direction: column;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.container-card {}
+
+.city-search {
+
+  display: flex;
+  flex-direction: column;
+  align-self: right;
+  height: 500px;
+  width: 300px;
+}
 
 .nav {
   height: 90px !important;
@@ -68,6 +98,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 .btn-large {
   padding: 0 170px;
 
@@ -77,7 +108,6 @@ body {
   color: var(--light-green);
   /* var(--yellow); */
 }
-
 
 .bg-blue {
   background-color: var(--blue);
@@ -98,7 +128,7 @@ body {
 .bg-red {
   background-color: var(--red);
   color: white;
-  
+
 }
 
 main {
@@ -107,6 +137,7 @@ main {
 
 .container {
   background-color: var(--yellow);
+
 }
 
 .card {
@@ -119,7 +150,5 @@ main {
 }
 
 @media screen and (min-width: 1500px) {
- header {
-  
- }
+  header {}
 }
