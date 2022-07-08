@@ -24,8 +24,13 @@ body {
   max-width: 95%;
   display: flex;
   flex-direction: column;
+  margin-top: 5%;
 }
 
+
+nav {
+  height: 90px !important;
+}
 
 .toggle {
   display: inline-flex;
@@ -84,4 +89,10 @@ h2,h3,h4,h5,h6 {
   background-color: var(--red);
   color: white;
 
+}
+
+@media screen and (min-width: 900px) {
+ /* header {
+
+ } */
 }
