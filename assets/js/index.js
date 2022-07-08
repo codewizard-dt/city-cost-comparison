@@ -100,7 +100,6 @@ const CostApi = {
     let { id, city, country } = cityGeoDb
     let stored = this.cache.find(city => city.geo_id === id)
     if (stored) {
-      console.log('got from cache', stored)
       this.currentCity = stored
       return stored
     }
@@ -145,10 +144,10 @@ const CostApi = {
      * Display main demographic data 
      * Display 'category' or 'goods' cards as well
      */
-    console.log(this)
-    // if (!costData) costData = this.currentCity
-    // let geoData = GeoApi.findById(costData.geo_id)
-    // console.log({costData,geoData})
+    // console.log(this)
+    if (!costData) costData = this.currentCity
+    let geoData = GeoApi.findById(costData.geo_id)
+    console.log('Available For Rendering', { costData, geoData })
   }
 }
 
@@ -166,15 +165,20 @@ async function demo() {
    */
   await GeoApi.handleSearch()
 
-  console.log('GEO RESULTS', GeoApi.results)
+  console.log('DEMO GEO RESULTS', GeoApi.searchTerm, GeoApi.results)
+
+  /**
+   * In this demo, GeoApi results are looped over in lieu of the user clicking a city 
+   */
   let data = {}
   for (let city of GeoApi.results) {
     data = await CostApi.getCityData(city)
     if (!data.error) break
   }
-  console.log('COST DATA', data)
+  console.log('DEMO COST DATA', data)
   if (data.error) throw { error: 'No cities found' }
   else CostApi.renderCityCosts()
 }
 
+// RUN DEMO
 demo()
