@@ -73,7 +73,7 @@ body {
 }
 
 .results-panel {
-  border: solid black 1px;
+  /* border: solid black 1px; */
   margin-top: 2%;
   min-height: 40vh;
 }
