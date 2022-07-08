@@ -31,14 +31,33 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.card-panel {
+
+/* Card panel messing with map location */
+/* .card-panel {
   height: 80vh;
   width: 60rem;
   max-width: 95%;
   display: flex;
-  flex-direction: column;
-
+  flex-direction:column;
   margin-top: 5%;
+} */
+
+.map-content{
+
+  display:flex;
+  flex-direction: row;
+ 
+}
+
+/* Added map section css */
+.map-card {
+  display:block;
+  flex-direction: column;
+  width: 600px;
+  height: 600px;
+  float:left; 
+  margin-top: 10px;
+margin-left: 50px;
 }
 
 .input-field {
@@ -61,7 +80,13 @@ body {
   width: 100%;
 }
 
-.container-card {}
+
+.card-data{
+
+  display:flex;
+margin-bottom: 20px;
+
+}
 
 .city-search {
 
@@ -129,11 +154,11 @@ body {
 .bg-red {
   background-color: var(--red);
   color: white;
-
 }
 
 main {
   background-color: var(--blue);
+  width: 100%;
 }
 
 .container {
