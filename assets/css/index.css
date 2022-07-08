@@ -20,19 +20,21 @@ body {
 
 .card-panel {
   height: 80vh;
-  width: 75vw;
+  width: 60rem;
+  max-width: 95%;
+  display: flex;
+  flex-direction: column;
 }
 
-.toggleBtns {
-  background: none;
-  display: flex;
-  justify-content: center;
-  margin-top: 10%;
+
+.toggle {
+  display: inline-flex;
+  margin-top: 3%;
 }
 
 .searchBar {
   background-color: grey;
-  margin-top: 2%
+  margin-top: 5%;
 }
 
 .results-panel {
@@ -41,6 +43,13 @@ body {
   height: 40vh;
 }
 
+
+.city-info {
+  height: 80vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .btn-large {
   padding: 0 170px;
 

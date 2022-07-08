@@ -1,3 +1,11 @@
+
+// console.log('linked')
+
+$(document).ready(function(){
+    $('.tabs').tabs();
+  });
+        
+
 /**
  * Defines an API that searches for cities based on name
  * https://wft-geo-db.p.rapidapi.com/v1/geo/cities
