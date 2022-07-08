@@ -43,12 +43,52 @@ h6 {
 }
 
 body {
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.card-panel {
+  height: 80vh;
+  width: 60rem;
+  max-width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.toggle {
+  display: inline-flex;
+  margin-top: 3%;
+}
+
+.searchBar {
+  background-color: grey;
+  margin-top: 5%;
+}
+
+.results-panel {
+  border: solid black 1px;
+  margin-top: 2%;
+  height: 40vh;
+}
+
+
+.city-info {
+  height: 80vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.btn-large {
+  padding: 0 170px;
+
   font-family: 'Pridi', serif;
   font-size: 16px;
   background: var(--blue);
   color: var(--light-green);
   /* var(--yellow); */
 }
+
 
 .bg-blue {
   background-color: var(--blue);
@@ -69,6 +109,7 @@ body {
 .bg-red {
   background-color: var(--red);
   color: white;
+  
 }
 
 main {
@@ -85,4 +126,5 @@ main {
 
 .header {
   background-color: var(--yellow);
+
 }

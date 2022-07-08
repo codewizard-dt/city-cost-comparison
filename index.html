@@ -2,46 +2,82 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Custom Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400&family=Source+Sans+Pro:ital,wght@0,200;0,300;1,200;1,300&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Reset Stylesheet -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <!-- Framework Stylesheets -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <!-- Project Stylesheets -->
-    <link rel="stylesheet" href="./assets/css/colors.css" />
-    <link rel="stylesheet" href="./assets/css/index.css" />
 
-    <title>Document</title>
-  </head>
-  <body>
-    <header>header</header>
-    <main>main</main>
-    <footer>footer</footer>
-    <scripts>
-      <!-- Framework Scripts -->
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      ></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      <!-- Package Scripts -->
-      <!-- Project Scripts -->
-      <script src="./assets/js/index.js"></script>
-    </scripts>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Custom Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant:ital@0;1&family=Josefin+Sans:ital,wght@0,300;0,400;1,300;1,400&family=Sarala&display=swap"
+    rel="stylesheet" />
+  <!-- Reset Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <!-- Framework Stylesheets -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <!-- Project Stylesheets -->
+  <link rel="stylesheet" href="./assets/css/index.css" />
+
+  <title>Cost of Living Comparison</title>
+</head>
+
+<body>
+  <header>header</header>
+  <main class="row">
+
+    <section class="col s12 m5 city-info">
+
+      <section class="card-panel white">
+
+        <div class="col s12 toggle">
+          <ul class="tabs">
+            <li class="tab col s6"><a href="#searchByName">By City Name</a></li>
+            <li class="tab col s6"><a href="#searchByMap">By Map</a></li>
+          </ul>
+        </div>
+        <div id="searchByName">
+          <nav class="searchBar" id="searchBar">
+            <div class="nav-wrapper">
+              <form>
+                <div class="input-field">
+                  <input id="search" type="search" required>
+                  <label class="label-icon" for="search" for="close"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+              </form>
+            </div>
+          </nav>
+          <div class="results-panel white">
+            <span class="black-text">I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively. I am similar to what is called a panel
+              in other frameworks.
+            </span>
+          </div>
+        </div>
+        <div id="searchByMap">
+          <div>Map</div>
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+  <footer>footer</footer>
+  <scripts>
+    <!-- Framework Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Package Scripts -->
+    <!-- Project Scripts -->
+    <script src="./assets/js/index.js"></script>
+  </scripts>
+</body>
+
 </html>
