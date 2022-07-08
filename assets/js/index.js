@@ -1,10 +1,10 @@
 
 // console.log('linked')
 
-$(document).ready(function(){
-    $('.tabs').tabs();
-  });
-        
+$(document).ready(function () {
+  $('.tabs').tabs();
+});
+
 
 /**
  * Defines an API that searches for cities based on name
