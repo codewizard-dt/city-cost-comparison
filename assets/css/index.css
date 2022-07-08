@@ -4,7 +4,7 @@ body {
 
 .card-panel {
   height: 80vh;
-  width: 60vw;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -17,12 +17,18 @@ body {
 
 .searchBar {
   background-color: grey;
-  margin-top: 8%;
-  position: relative;
+  margin-top: 5%;
 }
 
 .results-panel {
   border: solid black 1px;
   margin-top: 2%;
   height: 40vh;
+}
+
+.city-info {
+  height: 80vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
