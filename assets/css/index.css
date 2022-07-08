@@ -1,17 +1,55 @@
-:root {
+/* Original Color Scheme */
+/* :root {
   --blue: rgb(136, 182, 242);
   --green: rgb(156, 217, 171);
   --lightgreen: rgb(180, 217, 189);
   --yellow: rgb(242, 202, 128);
   --red: rgb(217, 86, 74);
+} */
+/* Tweaked Color Scheme */
+:root {
+  /* Container Background */
+  --blue: #42daff;
+  /* Card Background */
+  --green: #338a4a;
+  /* optional font color */
+  --light-green: #b4d9bd;
+  /* Container Background and/ optional font color */
+  --yellow: #f6d9a2;
+  --red: #d9564a;
 }
 
+<<<<<<< HEAD
 
 /* Font Families
 Tinos -- Large Headers, Serif
 Source Sans Pro -- Midsize Headers, Sans Serif
 Pridi -- text, serif */
 
+=======
+/* 
+Font Families
+h1, h2, h3, h4, h5, h6 {
+Tinos -- Large Headers, Serif
+Source Sans Pro -- Midsize Headers, Sans Serif
+Pridi -- text, serif
+*/
+h1,
+h2,
+h3 {
+  font-family: 'Tinos', 'Serif';
+  color: var(--light-green);
+  /* var(--yellow); */
+}
+
+h4,
+h5,
+h6 {
+  font-family: 'Source Sans Pro', 'Serif';
+  color: var(--light-green);
+  /* var(--yellow); */
+}
+>>>>>>> 4bc3e8497cc7ea5fbf454e0480b71edaa893be86
 
 body {
 
@@ -20,19 +58,21 @@ body {
 
 .card-panel {
   height: 80vh;
-  width: 75vw;
+  width: 60rem;
+  max-width: 95%;
+  display: flex;
+  flex-direction: column;
 }
 
-.toggleBtns {
-  background: none;
-  display: flex;
-  justify-content: center;
-  margin-top: 10%;
+
+.toggle {
+  display: inline-flex;
+  margin-top: 3%;
 }
 
 .searchBar {
   background-color: grey;
-  margin-top: 2%
+  margin-top: 5%;
 }
 
 .results-panel {
@@ -41,19 +81,23 @@ body {
   height: 40vh;
 }
 
+
+.city-info {
+  height: 80vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .btn-large {
   padding: 0 170px;
 
   font-family: 'Pridi', serif;
   font-size: 16px;
+  background: var(--blue);
+  color: var(--light-green);
+  /* var(--yellow); */
 }
 
-h1 {
-  font-family: 'Tinos', serif;
-}
-h2,h3,h4,h5,h6 {
-  font-family: 'Source Sans Pro', sans-serif;
-}
 
 .bg-blue {
   background-color: var(--blue);
@@ -74,5 +118,22 @@ h2,h3,h4,h5,h6 {
 .bg-red {
   background-color: var(--red);
   color: white;
+  
+}
+
+main {
+  background-color: var(--blue);
+}
+
+.container {
+  background-color: var(--yellow);
+}
+
+.card {
+  background-color: var(--green);
+}
+
+.header {
+  background-color: var(--yellow);
 
 }
