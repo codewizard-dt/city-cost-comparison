@@ -58,8 +58,9 @@ body {
 }
 
 
-.nav {
+.head {
   height: 90px !important;
+  padding-top: 15px;
 }
 
 .toggle {
@@ -73,7 +74,6 @@ body {
 }
 
 .results-panel {
-  /* border: solid black 1px; */
   margin-top: 2%;
   min-height: 40vh;
 }
@@ -132,10 +132,4 @@ main {
 .header {
   background-color: var(--yellow);
 
-}
-
-@media screen and (min-width: 1500px) {
- header {
-  
- }
 }
