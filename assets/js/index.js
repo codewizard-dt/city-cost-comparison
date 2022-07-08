@@ -1,10 +1,10 @@
 
 // console.log('linked')
 
-$(document).ready(function(){
-    $('.tabs').tabs();
-  });
-        
+$(document).ready(function () {
+  $('.tabs').tabs();
+});
+
 
 /**
  * Defines an API that searches for cities based on name
@@ -36,6 +36,7 @@ const GeoApi = {
       const res = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?namePrefix=${string}&${this.getParams()}`, this.fetchOptions)
       const { data } = await res.json()
       this.results = data
+      console.log(this, this.results)
     } catch (err) {
       console.log(err)
       return { error: err }
@@ -45,9 +46,9 @@ const GeoApi = {
   searchTerm: '',
   handleSearch: async function (ev) {
     if (ev) ev.preventDefault()
-    if (!this.searchTerm) throw { error: 'Search term required' }
-    await GeoApi.search(this.searchTerm)
-    this.renderResults()
+    if (!GeoApi.searchTerm) throw { error: 'Search term required' }
+    await GeoApi.search(GeoApi.searchTerm)
+    GeoApi.renderResults()
   },
   get cache() {
     let stored = localStorage.getItem('GeoApiCache')
@@ -67,15 +68,31 @@ const GeoApi = {
     return stored.find(cached => cached.id === id)
   },
   renderResults: function () {
-    console.log('RENDER GEO RESULTS HERE')
+    let collectionEl = $('#searchByName').find('.collection').html('')
     for (let city of this.results) {
       /** Render an HTMLElement for each result 
        * Store `city` as data on the HTMLElement
        * Attach `CostApi.getCityData(city)` as a click event listener
       */
+      let { city: name, region, country, countryCode } = city
+      $(`<a class='collection-item' href="#">${name}, ${region}, ${countryCode === 'US' ? countryCode : country}</a>`)
+        .appendTo(collectionEl)
+        .on('click', async (ev) => {
+          ev.preventDefault()
+          let costData = await CostApi.getCityData(city)
+          if (costData.error) {
+            // TODO: ERROR HANDLING
+          } else {
+            localStorage.setItem('city_id', costData.city_id)
+            document.location.href = 'results.html'
+          }
+        })
     }
   }
 }
+
+$('#search').on('keyup', function () { GeoApi.searchTerm = this.value })
+$('#searchByName').find('form').on('submit', GeoApi.handleSearch)
 
 /**
  * Defines an API that retrieves prices for more than 60 goods and services for more than 8000 cities
@@ -147,6 +164,10 @@ const CostApi = {
     stored.unshift(city)
     this.cache = stored
   },
+  findById: function (city_id) {
+    let stored = this.cache
+    return stored.find(cached => cached.city_id === city_id)
+  },
   renderCityCosts: function (costData) {
     /** Render elements related to city
      * Display main demographic data 
@@ -190,5 +211,6 @@ async function demo() {
   else CostApi.renderCityCosts()
 }
 
+
 // RUN DEMO
-demo()
+// demo()
