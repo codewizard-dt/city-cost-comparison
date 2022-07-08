@@ -53,8 +53,14 @@ body {
   max-width: 95%;
   display: flex;
   flex-direction: column;
+
+  margin-top: 5%;
 }
 
+
+.nav {
+  height: 90px !important;
+}
 
 .toggle {
   display: inline-flex;
@@ -71,7 +77,6 @@ body {
   margin-top: 2%;
   min-height: 40vh;
 }
-
 
 .city-info {
   height: 80vh;
@@ -127,4 +132,10 @@ main {
 .header {
   background-color: var(--yellow);
 
+}
+
+@media screen and (min-width: 1500px) {
+ header {
+  
+ }
 }
