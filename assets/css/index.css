@@ -31,13 +31,51 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/* Search bar */
+.city-search {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 20%;
+  float: left;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+/* Added map section css */
+.map-card {
+  display: flex;
+  flex-direction: row;
+  width: 65%;
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 24px;
+  border: solid;
+  border-radius: 10px;
+}
+
+/* Added new class */
+.search-data {
+  width: 550px;
+  margin-right: 80px;
+}
+
+.map-content {
+  display: flex;
+  flex-direction: row;
+}
+
 .card-panel {
   height: 80vh;
   width: 60rem;
   max-width: 95%;
   display: flex;
   flex-direction: column;
-
   margin-top: 5%;
 }
 
@@ -61,16 +99,10 @@ body {
   width: 100%;
 }
 
-.container-card {}
 
-.city-search {
-
+.card-data {
   display: flex;
-  flex-direction: column;
-  align-self: right;
-  height: 500px;
-  width: 300px;
-  float: left;
+  margin-bottom: 20px;
 }
 
 .nav {
@@ -129,7 +161,6 @@ body {
 .bg-red {
   background-color: var(--red);
   color: white;
-
 }
 
 main {
