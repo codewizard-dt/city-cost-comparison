@@ -175,7 +175,7 @@ const CostApi = {
   },
   findById: function (city_id) {
     let stored = this.cache
-    return stored.find(cached => cached.city_id === city_id)
+    return stored.find(cached => cached.city_id == city_id)
   },
   renderCityCosts: function (costData) {
     /** Render elements related to city
