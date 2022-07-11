@@ -11,6 +11,7 @@ html {
 }
 
 body {
+  min-width: fit-content;
   min-height: 100vh;
   line-height: 1;
   font-family: sans-serif;
@@ -24,6 +25,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 95%;
 }
 
 footer {

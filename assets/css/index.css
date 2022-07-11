@@ -1,3 +1,8 @@
+*, *::before, *::after {
+  margin-bottom:0;
+  padding-bottom:  0;
+}
+
 /* Original Color Scheme */
 /* :root {
   --blue: rgb(136, 182, 242);
@@ -31,13 +36,87 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/* Search bar */
+.city-search {
+  display: flex;
+  flex-direction: column;
+  height: 47vh;
+  width: 20%;
+  float: left;
+  margin-left: 50px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: solid;
+  margin-bottom: 10px;
+}
+
+/* Added map section css */
+.map-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 47vh;
+  width: 72%;
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border: solid;
+  border-radius: 10px;
+}
+
+ .exchange-container {
+  display: flex;
+  margin: auto;
+  background-color: var(--yellow);
+  height: 200px;
+  width: 100%;
+}
+
+.exchange-panel {
+  display: flex;
+  height: 150px;
+  width: 150px;
+}
+
+/* Added a container for the carousels. */
+.carousel-info {
+  display: flex;
+  flex-direction: row;
+  width: 72%;
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 24px;
+  border: solid;
+  border-radius: 10px;
+}
+
+.carousel-slider {
+  border: solid;
+  border-radius: 10px;
+  height: 342px !important;
+  margin: 10px;
+}
+
+/* Added new class */
+.search-data {
+  margin: 20px;
+}
+
+.map-content {
+  display: flex;
+  flex-direction: row;
+}
+
 .card-panel {
   height: 80vh;
   width: 60rem;
   max-width: 95%;
   display: flex;
   flex-direction: column;
-
   margin-top: 5%;
 }
 
@@ -61,20 +140,15 @@ body {
   width: 100%;
 }
 
-.container-card {}
 
-.city-search {
-
+.card-data {
   display: flex;
-  flex-direction: column;
-  align-self: right;
-  height: 500px;
-  width: 300px;
-  float: left;
+  margin-bottom: 20px;
 }
 
-.nav {
+.head {
   height: 90px !important;
+  padding-top: 15px;
 }
 
 .toggle {
@@ -88,7 +162,6 @@ body {
 }
 
 .results-panel {
-  /* border: solid black 1px; */
   margin-top: 2%;
   min-height: 40vh;
 }
@@ -129,7 +202,6 @@ body {
 .bg-red {
   background-color: var(--red);
   color: white;
-
 }
 
 main {
@@ -147,9 +219,26 @@ main {
 
 .header {
   background-color: var(--yellow);
-
+}
+.header-image {
+ 
+  height: 100%;
+  position:absolute;
+  
 }
 
-@media screen and (min-width: 1500px) {
-  header {}
+    
+    
+
+
+.nav-wrapper {
+  background-color: #2a2a72;
+background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
 }
+
+/* .header-logo {
+  width: 5%;
+  position: absolute;
+  left:0;
+  top: 0;
+} */
