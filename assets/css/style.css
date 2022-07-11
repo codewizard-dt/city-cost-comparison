@@ -24,9 +24,7 @@
     color: white;
   }
   .opacity {
-    background: #fff;
-    /* -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; */
-    opacity: .6;
+    background: rgba(249, 250, 249, 0.4);    /*  40% opaque green */ 
     z-index: -10;
     font-size: 32px;
   }
@@ -49,8 +47,30 @@
   }
   .logo{
       width: 30%;
+      height: 50px;
+      object-fit: cover;
       position:absolute;
-      right:5%;
-      bottom: 0;
+      right:1%;
+      bottom: 1%;
+      border-radius: 20%;
+
+    }
+  
+    .tabs .tab a{
+      color:white;
       
-  }
+  } /*Black color to the text*/
+
+  .tabs .tab a:hover {
+      background-color:#eee;
+      color:#000;
+  } /*Text color on hover*/
+
+  .tabs .tab a.active {
+      background-color:#888;
+      color:white;
+  } /*Background and text color when a tab is active*/
+
+  .tabs .indicator {
+      background-color:#000;
+  } /*Color of underline*/
