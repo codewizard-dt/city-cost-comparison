@@ -35,12 +35,13 @@ body {
 .city-search {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 47vh;
   width: 20%;
   float: left;
-  margin-left: 10px;
+  margin-left: 50px;
   margin-top: 20px;
-  border-radius: 3px;
+  border-radius: 10px;
+  border: solid;
   margin-bottom: 10px;
 }
 
@@ -48,10 +49,39 @@ body {
 .map-card {
   display: flex;
   flex-direction: row;
-  width: 65%;
+  justify-content: space-around;
+  height: 47vh;
+  width: 72%;
   float: left;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border: solid;
+  border-radius: 10px;
+}
+
+ .exchange-container {
+  display: flex;
+  margin: auto;
+  background-color: var(--yellow);
+  height: 200px;
+  width: 100%;
+}
+
+.exchange-panel {
+  display: flex;
+  height: 150px;
+  width: 150px;
+}
+
+/* Added a container for the carousels. */
+.carousel-info {
+  display: flex;
+  flex-direction: row;
+  width: 72%;
+  float: left;
+  margin-left: 20px;
   margin-bottom: 10px;
   margin-right: 10px;
   padding: 24px;
@@ -59,10 +89,16 @@ body {
   border-radius: 10px;
 }
 
+.carousel-slider {
+  border: solid;
+  border-radius: 10px;
+  height: 342px !important;
+  margin: 10px;
+}
+
 /* Added new class */
 .search-data {
-  width: 550px;
-  margin-right: 80px;
+  margin: 20px;
 }
 
 .map-content {
@@ -105,8 +141,9 @@ body {
   margin-bottom: 20px;
 }
 
-.nav {
+.head {
   height: 90px !important;
+  padding-top: 15px;
 }
 
 .toggle {
@@ -120,7 +157,6 @@ body {
 }
 
 .results-panel {
-  /* border: solid black 1px; */
   margin-top: 2%;
   min-height: 40vh;
 }
@@ -179,8 +215,4 @@ main {
 .header {
   background-color: var(--yellow);
 
-}
-
-@media screen and (min-width: 1500px) {
-  header {}
 }
