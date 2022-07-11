@@ -9,12 +9,10 @@
     <!-- Custom Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant:ital@0;1&family=Josefin+Sans:ital,wght@0,300;0,400;1,300;1,400&family=Sarala&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Reset Stylesheet -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400&family=Source+Sans+Pro:ital,wght@0,200;0,300;1,200;1,300&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap" rel="stylesheet">
     <!-- Framework Stylesheets -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -34,88 +32,43 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <!-- Project Stylesheets -->
-    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <title>Document</title>
+    <title>CityComp</title>
   </head>
 
   <body>
-    <header>
-      <!-- Dropdown Structure -->
-      <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">three</a></li>
-      </ul>
-      <nav class="head">
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">City Cost Comparison</a>
-          <ul class="right hide-on-med-and-down">
-            <li>
-              <a
-                href="https://github.com/codewizard-dt/city-cost-comparison"
-                target="_blank"
-                >GitHub</a
-              >
-            </li>
-            <li><a href="badges.html">Components</a></li>
-            <!-- Dropdown Trigger -->
-            <li>
-              <a class="dropdown-trigger" href="#!" data-target="dropdown1"
-                >Contributors<i class="material-icons right"
-                  >arrow_drop_down</i
-                ></a
-              >
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main class="row">
-      <section class="col s12 m5 city-info">
-        <section class="card-panel white">
-          <div class="col s12 toggle">
-            <ul class="tabs">
-              <li class="tab col s6">
-                <a href="#searchByName">By City Name</a>
-              </li>
-              <li class="tab col s6"><a href="#searchByMap">By Map</a></li>
-            </ul>
-          </div>
-          <div id="searchByName">
-            <nav class="searchBar" id="searchBar">
-              <div class="nav-wrapper">
-                <form>
-                  <div class="input-field">
-                    <input id="search" type="search" required />
-                    <label class="label-icon" for="search" for="close"
-                      ><i class="material-icons">search</i></label
-                    >
-                    <i class="material-icons">close</i>
-                  </div>
-                </form>
-              </div>
-            </nav>
-            <div class="results-panel white">
-              <div id="searchByName">
-                <div class="results-panel white">
-                  <div class="collection">
-                    <div class="collection-item">
-                      Seach cities to get results
-                    </div>
-                  </div>
+
+    <div class="hero-image">
+        <p class="quote">"You can't change the direction of the wind, but you can <span> adjust </span>   your sails to always reach your destination."</span></p>
+        <div class="hero-text">
+  
+        <div class="row center">
+            <div class="col s12 m12 offset-s2">
+                <div class = "card opacity z-depth-5">
+                   <div class="card content">
+                       <div class="col s12 toggle">
+                        <div class="card-title">Choose your next destination...</div>
+                        <ul class="tabs opacity z-depth-5">
+                          <li class="tab col s6">
+                            <a href="#searchByName">By City Name</a>
+                          </li>
+                          <li class="tab col s6"><a href="#searchByMap">By Map</a></li>
+                        </ul>
+                      </div>
+                    </div> 
                 </div>
-              </div>
-              <div id="searchByMap">
-                <div>Map</div>
-              </div>
             </div>
-          </div>
-        </section>
-      </section>
-    </main>
-    <footer>footer</footer>
+        </div>
+
+    <!-- <h1 style="font-size:50px">I am Jane Doe</h1>
+    <h3>And I'm a Photographer</h3>
+    <button>Hire me</button> -->
+    </div>
+    <img class ="logo" src="assets/images/corporate-logo-maker-with-icon-1517d (5).png">
+     
+   
     <scripts>
       <!-- Framework Scripts -->
       <script

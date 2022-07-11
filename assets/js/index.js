@@ -1,14 +1,14 @@
-
-// console.log('linked')
-
-$(document).ready(function(){
-    $('.tabs').tabs();
-  });
-        
-// console.log('linked')
+/**
+ * Initialize all `Materialize` components
+ */
 
 $(document).ready(function () {
   $('.tabs').tabs();
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+
 });
 
 
