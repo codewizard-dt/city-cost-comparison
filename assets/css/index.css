@@ -234,8 +234,19 @@ main {
 }
 
 .nav-wrapper {
+  display: flex;
+  justify-content: flex-start;
   background-color: #2a2a72;
-background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+  background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+}
+
+.nav-wrapper p {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.nav-wrapper img {
+  margin-left: 10px;
 }
 
 /* .header-logo {
@@ -243,4 +254,11 @@ background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
   position: absolute;
   left:0;
   top: 0;
+} */
+
+/* Media query for the carousels */
+/* @media screen and (min-width: 480px) {
+  .carousel-sliders {
+    background-color: lightgreen;
+  }
 } */
