@@ -97,6 +97,9 @@ const GeoApi = {
   }
 }
 
+/**
+ * EVENT LISTENERS FOR SEARCH BAR AND FORM SUBMISSION
+ */
 $('#search').on('keyup', function () { GeoApi.searchTerm = this.value })
 $('#searchByName').find('form').on('submit', GeoApi.handleSearch)
 
