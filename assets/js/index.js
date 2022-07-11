@@ -74,7 +74,9 @@ const GeoApi = {
     return stored.find(cached => cached.id === id)
   },
   renderResults: function () {
+
     let collectionEl = $('#searchByName').find('.collection').html('')
+    $('#resultsPanel').show()
     for (let city of this.results) {
       /** Render an HTMLElement for each result 
        * Store `city` as data on the HTMLElement
