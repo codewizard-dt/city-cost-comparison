@@ -224,15 +224,12 @@ main {
   background-color: var(--yellow);
 }
 .header-image {
- 
-  height: 100%;
-  
-  
+  height: 100%;  
 }
 
-    
-    
-
+#Demographics {
+  width: 100%;
+}
 
 .nav-wrapper {
   background-color: #2a2a72;
