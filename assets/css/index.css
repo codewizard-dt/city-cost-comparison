@@ -1,3 +1,8 @@
+*, *::before, *::after {
+  margin-bottom:0;
+  padding-bottom:  0;
+}
+
 /* Original Color Scheme */
 /* :root {
   --blue: rgb(136, 182, 242);
@@ -214,5 +219,26 @@ main {
 
 .header {
   background-color: var(--yellow);
-
 }
+.header-image {
+ 
+  height: 100%;
+  position:absolute;
+  
+}
+
+    
+    
+
+
+.nav-wrapper {
+  background-color: #2a2a72;
+background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+}
+
+/* .header-logo {
+  width: 5%;
+  position: absolute;
+  left:0;
+  top: 0;
+} */
