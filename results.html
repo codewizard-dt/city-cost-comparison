@@ -1,323 +1,180 @@
+<!-- @format -->
+
 <!DOCTYPE html>
-<html>
-
-<head>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" /> -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400&family=Source+Sans+Pro:ital,wght@0,200;0,300;1,200;1,300&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-    rel="stylesheet" />
-  <!-- Reset Stylesheet -->
-  <link rel="stylesheet" href="./assets/css/reset.css" />
-  <!-- Framework Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  <!-- Project Stylesheets -->
-  <link rel="stylesheet" href="./assets/css/index.css" />
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-
-<!-- Body color -->
-
-<body>
-  <main>
-    <!-- Header -->
+<html lang="en">
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400&family=Source+Sans+Pro:ital,wght@0,200;0,300;1,200;1,300&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Framework Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Project Stylesheets -->
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
     <header>
-        
-        <nav>
-                  
-          <div class="nav-wrapper">
-            <img src="/assets/images/corporate-logo-maker-with-icon-1517d (10).png" class="header-image left"> 
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="sass.html">Sass</a></li>
-              <li><a href="badges.html">Components</a></li>
-              <li><a href="collapsible.html">JavaScript</a></li>
+      <nav>
+        <div class="nav-wrapper">
+          <img
+            src="./assets/images/corporate-logo-maker-with-icon-1517d (10).png"
+            class="header-image"
+          />
+          CITY NAME
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Sass</a></li>
+            <li><a href="#">Components</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div id="Demographics" class="row">
+        <div class="search-container col s12 m3">
+          <input type="text" class="search-bar" />
+          <div class="search-results container">
+            <div class="container-item">item1</div>
+            <div class="container-item">item2</div>
+            <div class="container-item">item3</div>
+          </div>
+        </div>
+        <div id="CityInfo" class="col s12 m9">
+          <div class="row">
+            <div class="card col s12 m6">
+              <h2>City Name</h2>
+              <p>Demographic Data: 1</p>
+              <p>Demographic Data: 2</p>
+              <p>Demographic Data: 3</p>
+              <p>Demographic Data: 4</p>
+              <p>Demographic Data: 5</p>
+            </div>
+            <div class="card col s12 m6">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d239283.1392350707!2d-87.01468175940212!3d20.432348997106995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4ef8efb0d19327%3A0x342ebcae5c018bfc!2sCozumel!5e0!3m2!1sen!2sus!4v1657560021697!5m2!1sen!2sus"
+                width="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-info">
+        <div id="Restaurants" class="carousel carousel-slider center">
+          <div class="carousel-item red white-text" href="#one!">
+            <h2>Restaurant 1</h2>
+            <p class="white-text">Info 1</p>
+          </div>
+          <div class="carousel-item amber white-text" href="#two!">
+            <h2>Restaurant 2</h2>
+            <p class="white-text">Info 2</p>
+          </div>
+          <div class="carousel-item green white-text" href="#three!">
+            <h2>Restaurant 3</h2>
+            <p class="white-text">Info 3</p>
+          </div>
+        </div>
+
+        <div id="Commodities" class="carousel carousel-slider center">
+          <div class="carousel-item amber white-text" href="#one!">
+            <h2>Commodity 1</h2>
+            <p class="white-text">Info 1</p>
+          </div>
+          <div class="carousel-item green white-text" href="#two!">
+            <h2>Commodity 2</h2>
+            <p class="white-text">Info 2</p>
+          </div>
+          <div class="carousel-item blue white-text" href="#three!">
+            <h2>Commodity 3</h2>
+            <p class="white-text">Info 3</p>
+          </div>
+        </div>
+
+        <div id="Rents" class="carousel carousel-slider center">
+          <div class="carousel-item green white-text" href="#one!">
+            <h2>Rent 1</h2>
+            <p class="white-text">Info 1</p>
+          </div>
+          <div class="carousel-item amber white-text" href="#two!">
+            <h2>Rent 2</h2>
+            <p class="white-text">Info 2</p>
+          </div>
+          <div class="carousel-item red white-text" href="#three!">
+            <h2>Rent 3</h2>
+            <p class="white-text">Info 3</p>
+          </div>
+        </div>
+
+        <div id="SportsLeisure" class="carousel carousel-slider center">
+          <div class="carousel-item blue white-text" href="#one!">
+            <h2>Sport 1</h2>
+            <p class="white-text">Info 1</p>
+          </div>
+          <div class="carousel-item amber white-text" href="#two!">
+            <h2>Sport 2</h2>
+            <p class="white-text">Info 2</p>
+          </div>
+          <div class="carousel-item green white-text" href="#three!">
+            <h2>Sport 3</h2>
+            <p class="white-text">Info 3</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="page-footer green">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">
+              You can use rows and columns here to organize your footer content.
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
             </ul>
           </div>
-        </nav>
-    </header>
-    <!-- nav bar -->
-    <section class="container city-search">
-      <nav class="container-nav left">
-        <form>
-          <div class="input-field">
-            <input id="searchByName" type="search" required>
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-          </div>
-        </form>
-      </nav>
-      <!-- collection under nav -->
-      <div class="collection left">
-        <a href="#!" class="collection-item active">Search Results</a>
-      </div>
-
-      <div class="exchange-container">
-        <div class="col s12 m5">
-          <div class="exchange-panel teal">
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- card / needs links to connect with map and display info-->
-    <section class="container map-card">
-      <div>
-        <div class="col s12 m7">
-          <div class="card medium search-data">
-            <div class="card-image">
-              <img src="https://th.bing.com/th/id/R.42879741359b6701a4d8d99e0faeb465?rik=CJcBZxLfRfwsKw&pid=ImgRaw&r=0">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.tempore dolorum fugiat labore? Minima
-                architecto accusamus quis esse, culpa officia placeat!</p>
-            </div>
-            <div class="card-action">
-              <!-- Added Links -->
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
+          <div class="footer-copyright">
+            <div class="container">
+              © 2014 Copyright Text
+              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
           </div>
         </div>
       </div>
-      <!-- added new card / map location-->
-      <div class="col s12 m7">
-        <div class="card medium search-data">
-          <div class="card-image">
-            <img src="https://th.bing.com/th/id/R.42879741359b6701a4d8d99e0faeb465?rik=CJcBZxLfRfwsKw&pid=ImgRaw&r=0">
-            <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section for the carousels -->
-    <section class="container carousel-info">
-      <div class="carousel carousel-slider center">
-        <div class="carousel-fixed-item center">
-          <a class="btn waves-effect white grey-text darken-text-2">button</a>
-        </div>
-        <div class="carousel-item red white-text" href="#one!">
-          <h2>First Panel</h2>
-          <p class="white-text">This is youbackground-color: #2a2a72;
-            background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);r first panel</p>
-        </div>
-        <div class="carousel-item amber white-text" href="#two!">
-          <h2>Second Panel</h2>
-          <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item green white-text" href="#three!">
-          <h2>Third Panel</h2>
-          <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item blue white-text" href="#four!">
-          <h2>Fourth Panel</h2>
-          <p class="white-text">This is your fourth panel</p>
-        </div>
-      </div>
-      <div class="carousel carousel-slider center">
-        <div class="carousel-fixed-item center">
-          <a class="btn waves-effect white grey-text darken-text-2">button</a>
-        </div>
-        <div class="carousel-item red white-text" href="#one!">
-          <h2>First Panel</h2>
-          <p class="white-text">This is your first panel</p>
-        </div>
-        <div class="carousel-item amber white-text" href="#two!">
-          <h2>Second Panel</h2>
-          <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item green white-text" href="#three!">
-          <h2>Third Panel</h2>
-          <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item blue white-text" href="#four!">
-          <h2>Fourth Panel</h2>
-          <p class="white-text">This is your fourth panel</p>
-        </div>
-      </div>
-      <div class="carousel carousel-slider center">
-        <div class="carousel-fixed-item center">
-          <a class="btn waves-effect white grey-text darken-text-2">button</a>
-        </div>
-        <div class="carousel-item red white-text" href="#one!">
-          <h2>First Panel</h2>
-          <p class="white-text">This is your first panel</p>
-        </div>
-        <div class="carousel-item amber white-text" href="#two!">
-          <h2>Second Panel</h2>
-          <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item green white-text" href="#three!">
-          <h2>Third Panel</h2>
-          <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item blue white-text" href="#four!">
-          <h2>Fourth Panel</h2>
-          <p class="white-text">This is your fourth panel</p>
-        </div>
-      </div>
-      <div class="carousel carousel-slider center" style="height:300px;">
-        <div class="carousel-fixed-item center">
-          <a class="btn waves-effect white grey-text darken-text-2">button</a>
-        </div>
-        <div class="carousel-item red white-text" href="#one!">
-          <h2>First Panel</h2>
-          <p class="white-text">This is your first panel</p>
-        </div>
-        <div class="carousel-item amber white-text" href="#two!">
-          <h2>Second Panel</h2>
-          <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item green white-text" href="#three!">
-          <h2>Third Panel</h2>
-          <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item blue white-text" href="#four!">
-          <h2>Fourth Panel</h2>
-          <p class="white-text">This is your fourth panel</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- tabs
-    <div class="row">
-      <div class="col s12">
-        <ul class="tabs">
-          <li class="tab col s3"><a href="#test1">Test 1</a></li>
-          <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-          <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
-          <li class="tab col s3"><a href="#test4">Test 4</a></li>
-        </ul>
-      </div>
-    </div> -->
-
-    <!-- Cards with links can be modified for what we need -->
-    <!-- bottom first card / soon to be info card-->
-    <!-- <section class="card-data">
-      <div class="container">
-        <div class="col s12 m7">
-          <div class="card small">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    <!-- bottom second card / Select categorys card-->
-    <!-- <div class="container">
-        <div class="col s12 m7">
-          <div class="card small">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    <!-- bottom third card / display stats card -->
-    <!-- <div class="container">
-        <div class="col s12 m7">
-          <div class="card small">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    <!-- bottom fourth card / extra -->
-    <!-- <div class="container">
-        <div class="col s12 m7">
-          <div class="card xsmall">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-  </main>
-  <!--JavaScript at end of body for optimized loading-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="./assets/js/index.js"></script>
-  <script src="./assets/js/results.js"></script>
-</body>
-
-<!-- footer -->
-<footer class="page-footer green">
-
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Links</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-        </ul>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">
-          © 2014 Copyright Text
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
+    </footer>
+    <scripts>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="./assets/js/index.js"></script>
+      <script src="./assets/js/results.js"></script>
+    </scripts>
+  </body>
 </html>
