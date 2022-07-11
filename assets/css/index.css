@@ -249,6 +249,11 @@ main {
   margin-left: 10px;
 }
 
+.footer-links {
+  display: inline-block;
+  flex-direction: row;
+}
+
 /* .header-logo {
   width: 5%;
   position: absolute;
@@ -257,8 +262,9 @@ main {
 } */
 
 /* Media query for the carousels */
-/* @media screen and (min-width: 480px) {
-  .carousel-sliders {
-    background-color: lightgreen;
+@media screen and (max-width: 600px) {
+  .carousel-info {
+    display: flex;
+    flex-direction: column;
   }
-} */
+}
