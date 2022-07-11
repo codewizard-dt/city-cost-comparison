@@ -35,7 +35,7 @@ body {
 .city-search {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 47vh;
   width: 20%;
   float: left;
   margin-left: 50px;
@@ -50,6 +50,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  height: 47vh;
   width: 72%;
   float: left;
   margin-top: 20px;
