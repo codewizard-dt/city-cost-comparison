@@ -79,3 +79,17 @@
   .tabs .indicator {
       background-color:#000;
   } /*Color of underline*/
+
+  .searchbar {
+    
+    background: rgba(249, 250, 249, 0.4);    /*  40% opaque green */ 
+    
+  }
+  .tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: #888;
+    outline: none;
+}
+.center{
+  width:35vw;
+
+}
