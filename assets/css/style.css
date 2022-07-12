@@ -85,11 +85,19 @@
     background: rgba(249, 250, 249, 0.4);    /*  40% opaque green */ 
     
   }
+  
+    nav.searchbar .input-field label i {
+      color: var(--lightgreen)
+    }
+
   .tabs .tab a:focus, .tabs .tab a:focus.active {
     background-color: #888;
     outline: none;
 }
-.center{
-  width:35vw;
 
+#searchByMap {
+  width: 140%;
+  height: 500px;
+  max-height: 50vh;
 }
+
