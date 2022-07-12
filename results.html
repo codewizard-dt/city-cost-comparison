@@ -16,6 +16,15 @@
       href="https://fonts.googleapis.com/css2?family=Pridi:wght@200;300;400&family=Source+Sans+Pro:ital,wght@0,200;0,300;1,200;1,300&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
     <!-- Framework Stylesheets -->
     <link
       rel="stylesheet"
@@ -41,18 +50,36 @@
       </nav>
     </header>
     <main>
-      <div id="Demographics" class="row">
+      <div class="row">
         <div class="search-container col s12 m3">
-          <input type="text" class="search-bar" />
-          <div class="search-results container">
-            <div class="container-item">item1</div>
-            <div class="container-item">item2</div>
-            <div class="container-item">item3</div>
-          </div>
+          <aside id="searchByName">
+            <nav class="searchbar">
+              <div class="nav-wrapper city-search">
+                <form>
+                  <div class="input-field">
+                    <input id="search" type="search" required />
+                    <label class="label-icon" for="search" for="close"
+                      ><i class="material-icons">search</i></label
+                    >
+                    <i class="material-icons">close</i>
+                  </div>
+                </form>
+              </div>
+            </nav>
+            <div id="resultsPanel">
+              <div class="collection">
+                <div class="collection-item"></div>
+              </div>
+            </div>
+          </aside>
         </div>
         <div id="CityInfo" class="col s12 m9">
           <div class="row">
-            <div id="CityData" class="card col s12 m6" style="height: 350px">
+            <div
+              id="Demographics"
+              class="card col s12 m6"
+              style="height: 350px"
+            >
               <h2>City Name</h2>
               <p>Demographic Data: 1</p>
               <p>Demographic Data: 2</p>
@@ -61,15 +88,7 @@
               <p>Demographic Data: 5</p>
             </div>
             <div class="card col s12 m6" style="height: 350px">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d239283.1392350707!2d-87.01468175940212!3d20.432348997106995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4ef8efb0d19327%3A0x342ebcae5c018bfc!2sCozumel!5e0!3m2!1sen!2sus!4v1657560021697!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+              <div id="CityMap"></div>
             </div>
           </div>
         </div>
@@ -178,6 +197,11 @@
       </div>
     </footer>
     <scripts>
+      <script
+        async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASskxxkjhtf-VJBac0uCTvmn8xxv4R_Sg"
+      ></script>
+
       <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
