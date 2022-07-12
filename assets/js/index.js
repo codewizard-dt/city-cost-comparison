@@ -368,8 +368,9 @@ const MapApi = {
       center
     });
     if (!Array.isArray(markers)) markers = [markers]
+    let { city_id } = CostApi.currentCity || {} 
     for (let marker of markers) {
-      MapApi.createMarker({ ...marker, city_id: CostApi.currentCity.city_id })
+      MapApi.createMarker({ ...marker, city_id })
     }
   },
   createMarker: function ({ position: { lat, lng }, city_id, ...options }) {
@@ -387,7 +388,7 @@ const MapApi = {
       else if (typeof setCity !== 'undefined') setCity(city_id, true)
     })
     marker.addListener('mouseover', function () { this.setOpacity(1) })
-    marker.addListener('mouseout', function () { if (CostApi.currentCity.city_id != city_id) this.setOpacity(0.5) })
+    marker.addListener('mouseout', function () { if (city_id && CostApi.currentCity.city_id != city_id) this.setOpacity(0.5) })
     MapApi.markers.unshift(marker)
   },
   renderNearbyCities: async function () {
