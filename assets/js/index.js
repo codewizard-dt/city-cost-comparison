@@ -416,6 +416,13 @@ const CostApi = {
 }
 
 /**
+ * Allows functionality on collapsible lists 
+ * */
+$(document).ready(function(){
+  $('.collapsible').collapsible();
+});
+
+/**
  * Defines an API for Google Maps
  */
 const MapApi = {
