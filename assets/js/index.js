@@ -1,13 +1,20 @@
 /**
- * Initialize all `Materialize` components
+ * jQuery event listener that is called when the DOM is fully loaded
  */
-
 $(document).ready(function () {
+  /**
+   * Initializes all `Materialize` components
+   */
   $('.tabs').tabs();
   $('.carousel.carousel-slider').carousel({
     fullWidth: true,
     indicators: true
   });
+
+  /**
+   * Checks cache and loads recently searched cities
+   */
+  GeoApi.renderCachedResults()
 
 });
 
@@ -54,7 +61,7 @@ const GeoApi = {
     if (ev) ev.preventDefault()
     if (!GeoApi.searchTerm) throw { error: 'Search term required' }
     await GeoApi.search(GeoApi.searchTerm)
-    GeoApi.renderResults()
+    GeoApi.renderSearchResults()
   },
   get cache() {
     let stored = localStorage.getItem('GeoApiCache')
@@ -73,36 +80,55 @@ const GeoApi = {
     let stored = this.cache
     return stored.find(cached => cached.id === id)
   },
-  renderResults: function () {
-
-    let collectionEl = $('#searchByName').find('.collection').html('')
-    $('#resultsPanel').show()
+  resultsEl: $('#resultsPanel'),
+  collectionEl: $('#searchByName').find('.collection'),
+  renderCollectionItem: function (city) {
+    /** Render an HTMLElement for each result 
+     * Store `city` as data on the HTMLElement
+     * Attach `CostApi.getCityData(city)` as a click event listener
+    */
+    let { city: name, region, country, countryCode } = city
+    $(`<a class='collection-item' href="#">${name}, ${region}, ${countryCode === 'US' ? countryCode : country}</a>`)
+      .appendTo(GeoApi.collectionEl)
+      .on('click', async (ev) => {
+        ev.preventDefault()
+        let costData = await CostApi.getCityData(city)
+        if (costData.error) {
+          // TODO: ERROR HANDLING
+        } else {
+          localStorage.setItem('city_id', costData.city_id)
+          document.location.href = 'results.html'
+        }
+      })
+  },
+  renderSearchResults: function () {
+    GeoApi.resultsEl.show()
+    GeoApi.collectionEl.html('')
     for (let city of this.results) {
-      /** Render an HTMLElement for each result 
-       * Store `city` as data on the HTMLElement
-       * Attach `CostApi.getCityData(city)` as a click event listener
-      */
-      let { city: name, region, country, countryCode } = city
-      $(`<a class='collection-item' href="#">${name}, ${region}, ${countryCode === 'US' ? countryCode : country}</a>`)
-        .appendTo(collectionEl)
-        .on('click', async (ev) => {
-          ev.preventDefault()
-          let costData = await CostApi.getCityData(city)
-          if (costData.error) {
-            // TODO: ERROR HANDLING
-          } else {
-            localStorage.setItem('city_id', costData.city_id)
-            document.location.href = 'results.html'
-          }
-        })
+      this.renderCollectionItem(city)
+    }
+  },
+  renderCachedResults: function () {
+    let cachedResults = this.cache.slice(0, 10)
+    GeoApi.collectionEl.html('')
+    for (let city of cachedResults) {
+      this.renderCollectionItem(city)
     }
   }
 }
 
 /**
- * EVENT LISTENERS FOR SEARCH BAR AND FORM SUBMISSION
+ * EVENT LISTENERS FOR CITY SEARCH BAR AND FORM SUBMISSION
  */
 $('#search').on('keyup', function () { GeoApi.searchTerm = this.value })
+  .on('blur', function () {
+    /** Hides the Results Panel when the user clicks out of the Search bar */
+    GeoApi.resultsEl.fadeOut()
+  })
+  .on('focus', function () {
+    /** Shows the Results Panel when user clicks on the Search bar, only if there are items in the collection */
+    if (GeoApi.collectionEl.find('.collection-item').length) GeoApi.resultsEl.fadeIn()
+  })
 $('#searchByName').find('form').on('submit', GeoApi.handleSearch)
 
 /**
@@ -203,7 +229,7 @@ async function demo() {
    */
   GeoApi.searchTerm = 'atlanta'
   /**
-   * TODO: Update `GeoApi.renderResults` function which is called within `GeoApi.handleSearch`
+   * TODO: Update `GeoApi.renderSearchResults` function which is called within `GeoApi.handleSearch`
    */
   await GeoApi.handleSearch()
 
