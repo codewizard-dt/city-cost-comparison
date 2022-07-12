@@ -25,7 +25,7 @@ $(document).ready(function () {
  */
 const GeoApi = {
   /** Default parameters for search */
-  params: { sort: '-population', limit: 10 },
+  params: { sort: '-population', limit: 10,type: "CITY" },
   /** Merges params with defaults and stringifies */
   getParams: function (params = {}) {
     return Object.entries({ ...this.params, ...params }).map(([key, val]) => {
@@ -336,28 +336,11 @@ const CostApi = {
     if (!city) city = await CostApi.getDataById(city_id)
     return city
   },
-  /** Renders list of prices grouped by category */
-  renderCityCosts: function (city) {
-    /** Render elements related to city
-     * Display main demographic data 
-     * Display 'category' or 'goods' cards as well
-     */
-    if (city) {
-      this.renderAllCarousels(this.getCostsByCategory(city))
-    } else {
-      this.renderAllCarousels()
-    }
-  },
-  /** Takes the list of prices from the city data and returns chunks by category */
-  getCostsByCategory: function (city) {
-    if (!city) city = this.currentCity
-    const costs = {}
+  /** Takes the list of prices from the city data and filters by category_id */
+  getCostsByCategoryId: function (id) {
+    let city = this.currentCity
     const { prices } = city
-    for (let price of prices) {
-      if (!costs[price.category_name]) costs[price.category_name] = []
-      costs[price.category_name].push(price)
-    }
-    return costs
+    return prices.filter(({ category_id }) => category_id == id)
   },
   /** Uses `Intl.NumberFormat` to correctly display any number */
   formatCost: function (cost, measure, currency, usd) {
@@ -375,45 +358,55 @@ const CostApi = {
    * @param {string} category_name name of the category
    * @param {*} options 
    */
-  renderCarousel: function (prices, category_name, options = {}) {
-    /** List of possible carousel colors */
-    const colors = ['red', 'blue', 'amber', 'green']
-    /** Carousel container element */
-    const carouselContainerEl = $('.carousel-info')
-    /** Returns the color based on the position of the carousel and the position of the price within the category */
-    const getColor = (el) => {
-      let carouselIndex = $('.carousel-info').children().length, itemIndex = el.children().length
-      return colors[(carouselIndex + itemIndex) % colors.length]
-    }
-    if (!prices) {
-      /** Renders the categories for the current city only */
-      this.renderAllCarousels()
-    } else {
-      /** Adds a new carousel for this category */
-      const carouselEl = $(`<div id="${category_name.replace(/[^a-zA-Z]/g, '')}" class="carousel carousel-slider center"></div>`).appendTo(carouselContainerEl)
-      for (let item of prices) {
-        /** Adds a new `.carousel-item` for each price within the category */
-        let { item_name, avg, min, max, usd = {}, measure, currency_code } = item
-        carouselEl.append(`<div class="carousel-item ${getColor(carouselEl)} white-text" href="#one!">
-          <h2>${category_name}</h2>
-          <h4>${item_name}</h4>
-          <p class="white-text">Currency: ${currency_code}</p>
-          <p class="white-text">Average: ${CostApi.formatCost(avg, measure, currency_code, usd.avg)}</p>
-          <p class="white-text">Minimum: ${CostApi.formatCost(min, measure, currency_code, usd.min)}</p>
-          <p class="white-text">Maximum: ${CostApi.formatCost(max, measure, currency_code, usd.max)}</p>
-       `)
+  renderCarouselSlide: function (array, category_name, carouselEl) {
+    let slideEl = $(`<div class='carousel-item red' href="#one!"></div>`).appendTo(carouselEl)
+    slideEl.append(`<h3>${category_name}</h3><ul class='dataPoints'></ul>`)
+    if (array.length) {
+      for (let i = 0; i < 4; i++) {
+        if (array.length === 0) break
+        let item = array.splice(Math.floor(Math.random() * array.length), 1)[0]
+        let { item_name, avg, usd = {}, measure, currency_code } = item
+        slideEl.find('ul').append(`<li class='white-text'>${item_name}: ${CostApi.formatCost(avg, measure, currency_code, usd.avg)}</li>`)
       }
+    } else {
+      slideEl.find('ul').replaceWith(`<div class='dataPoints'>We're currently researching this</div>`)
     }
   },
-  /** Clears the carousel container and adds all new carousels */
-  renderAllCarousels: function (categories) {
-    if (!categories) categories = this.getCostsByCategory()
-    $('.carousel-info').html('')
 
-    /** Accesses the category_name and array of items  */
-    for (let [name, items] of Object.entries(categories)) {
-      this.renderCarousel(items, name)
-    }
+  /** Clears the carousel container and adds all new carousels */
+  renderCarousels: function () {
+    let containerEl = $('.carousel-info').html('')
+
+    // Rent id = 5, Buy id = 1, Salary id = 7
+    let carousel1 = $(`<div class='carousel carousel-slider center'></div>`).appendTo(containerEl)
+    let rent = this.getCostsByCategoryId(5)
+    let buy = this.getCostsByCategoryId(1)
+    let salary = this.getCostsByCategoryId(7)
+
+    this.renderCarouselSlide(rent, 'Monthly Rent', carousel1)
+    this.renderCarouselSlide(buy, 'Buy an Apartment', carousel1)
+    this.renderCarouselSlide(salary, 'Salaries', carousel1)
+
+    // Restaurant id = 6, Market id = 4, Market id = 4
+    let carousel2 = $(`<div class='carousel carousel-slider center'></div>`).appendTo(containerEl)
+    let restaurants = this.getCostsByCategoryId(6)
+    let market = this.getCostsByCategoryId(4)
+    // let salary = this.getCostsByCategoryId(7)
+
+    this.renderCarouselSlide(restaurants, 'Restaurants', carousel2)
+    this.renderCarouselSlide(market, 'Commodoties', carousel2)
+    this.renderCarouselSlide(market, 'Commodoties', carousel2)
+
+    // Transpo id = 9, Utilities id = 10, Childcare id = 2
+    let carousel3 = $(`<div class='carousel carousel-slider center'></div>`).appendTo(containerEl)
+    let transpo = this.getCostsByCategoryId(9)
+    let utilities = this.getCostsByCategoryId(10)
+    let children = this.getCostsByCategoryId(2)
+
+    this.renderCarouselSlide(transpo, 'Transportation', carousel3)
+    this.renderCarouselSlide(utilities, 'Utilities', carousel3)
+    this.renderCarouselSlide(children, 'Child Care', carousel3)
+
     /** Initializes all the new carousels */
     $('.carousel.carousel-slider').carousel({
       fullWidth: true,
@@ -488,7 +481,7 @@ const MapApi = {
   },
   /** Randomly selects 5 cities from the `CostApi.cityList` that are within the bounds of the map and renders markers for them */
   renderNearbyCities: async function () {
-    const bounds = MapApi.map.getBounds()
+    const bounds = MapApi.map ? MapApi.map.getBounds() : false
     if (!bounds) {
       /** Delays the rendering if the map is not loaded yet */
       setTimeout(MapApi.renderNearbyCities, 500)
