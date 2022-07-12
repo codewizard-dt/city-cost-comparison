@@ -25,8 +25,14 @@ $(document).ready(function () {
  */
 const GeoApi = {
   params: { sort: '-population', limit: 10 },
-  getParams: function () {
-    return Object.entries(this.params).map(([key, val]) => `${key}=${val}`).join('&')
+  getParams: function (params = {}) {
+    return Object.entries({ ...this.params, ...params }).map(([key, val]) => {
+      return key === 'location'
+        ? `location=${GeoApi.locationParam(val)}` : `${key}=${val}`
+    }).join('&')
+  },
+  locationParam: function ({ lat, lng }) {
+    return `${lat < 0 ? '' : '%2B'}${lat}${lng < 0 ? '' : '%2B'}${lng}`
   },
   fetchOptions: {
     headers: {
@@ -43,13 +49,13 @@ const GeoApi = {
     this.cacheToLocal(city)
     this.current = city
   },
-  search: async function (string) {
+  search: async function (string, params) {
     try {
       if (!string) throw { error: 'Search term required' }
-      const res = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?namePrefix=${string}&${this.getParams()}`, this.fetchOptions)
+      const res = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?namePrefix=${string}&${this.getParams(params)}`, this.fetchOptions)
       const { data } = await res.json()
-      this.results = data
-      console.log(this, this.results)
+      if (params === undefined) this.results = data
+      // console.log(this, this.results)
       return data
     } catch (err) {
       console.log(err)
@@ -87,14 +93,14 @@ const GeoApi = {
   renderCollectionItem: function (city) {
     /** Render an HTMLElement for each result 
      * Store `city` as data on the HTMLElement
-     * Attach `CostApi.getCityData(city)` as a click event listener
+     * Attach `CostApi.getDataByGeoDb(city)` as a click event listener
     */
     let { city: name, region, country, countryCode } = city
     $(`<a class='collection-item' href="#">${name}, ${region}, ${countryCode === 'US' ? countryCode : country}</a>`)
       .appendTo(GeoApi.collectionEl)
       .on('click', async (ev) => {
         ev.preventDefault()
-        let costData = await CostApi.getCityData(city)
+        let costData = await CostApi.getDataByGeoDb(city)
         if (costData.error) {
           // TODO: ERROR HANDLING
         } else {
@@ -187,7 +193,7 @@ const CostApi = {
    * @param {object} cityGeoDb a response object from the GeoApi
    * @returns combined geo and cost data
    */
-  getCityData: async function (cityGeoDb) {
+  getDataByGeoDb: async function (cityGeoDb) {
     GeoApi.currentCity = cityGeoDb
     let { id, city, country } = cityGeoDb
     let stored = this.cache.find(city => city.geo_id === id)
@@ -208,6 +214,27 @@ const CostApi = {
       console.error(error)
       return { error }
     }
+  },
+  getDataById: async function (city_id) {
+    try {
+      if (!city_id) throw { error: 'city_id required' }
+      const response = await fetch(`https://cost-of-living-and-prices.p.rapidapi.com/prices?city_id=${city_id}`, this.fetchOptions)
+      const data = await response.json()
+      if (data.error) throw data
+      // console.log(data)
+      let { lat, lng } = CostApi.cityList.find(({ city_id }) => data.city_id == city_id)
+      let geoData = await GeoApi.search(data.city_name, { location: { lat: lat, lng: lng } })
+      // console.log(geoData)
+      let closest = geoData.sort((a, b) => a.distance - b.distance)[0]
+      GeoApi.currentCity = closest
+      data.geo_id = closest.id
+      this.currentCity = data
+      return data
+    } catch (error) {
+      console.error(error)
+      return { error }
+    }
+
   },
   categories: [],
   updateCategories: function () {
@@ -247,9 +274,11 @@ const CostApi = {
     stored.unshift(city)
     this.cache = stored
   },
-  findById: function (city_id) {
+  findById: async function (city_id) {
     let stored = this.cache
-    return stored.find(cached => cached.city_id == city_id)
+    let city = stored.find(cached => cached.city_id == city_id)
+    if (!city) city = await CostApi.getDataById(city_id)
+    return city
   },
   renderCityCosts: function (city) {
     /** Render elements related to city
@@ -325,14 +354,14 @@ const CostApi = {
 }
 
 const MapApi = {
-  apiKey: "AIzaSyBgXZVqpjEkbxWRkmEw4ukpqDjNFGYAxo0",
   mapEl: document.getElementById('CityMap'),
   map: null,
   markers: [],
   renderMap: function (mapEl, center, markers = []) {
-    if (typeof google === 'undefined') return
-    // console.trace()
-    // console.log(mapEl, center, markers)
+    if (typeof google === 'undefined') {
+      setTimeout(() => { MapApi.renderMap(mapEl, center, markers) }, 500)
+      return
+    }
     MapApi.mapEl = mapEl
     MapApi.map = new google.maps.Map(MapApi.mapEl, {
       zoom: 5,
@@ -340,19 +369,25 @@ const MapApi = {
     });
     if (!Array.isArray(markers)) markers = [markers]
     for (let marker of markers) {
-      MapApi.createMarker(marker)
+      MapApi.createMarker({ ...marker, city_id: CostApi.currentCity.city_id })
     }
   },
-  createMarker: function ({ position: { lat, lng }, ...options }) {
+  createMarker: function ({ position: { lat, lng }, city_id, ...options }) {
     let marker = new google.maps.Marker({
       position: { lat, lng },
       map: MapApi.map,
       animation: google.maps.Animation.DROP,
       ...options
     })
-    marker.addListener('click', () => {
-      console.log(marker)
+    marker.addListener('click', async () => {
+      let city = await CostApi.findById(city_id)
+      let url = document.location.href
+      localStorage.setItem('city_id', city_id)
+      if (!url.includes('results.html')) document.location.href = 'results.html'
+      else if (typeof setCity !== 'undefined') setCity(city_id, true)
     })
+    marker.addListener('mouseover', function () { this.setOpacity(1) })
+    marker.addListener('mouseout', function () { if (CostApi.currentCity.city_id != city_id) this.setOpacity(0.5) })
     MapApi.markers.unshift(marker)
   },
   renderNearbyCities: async function () {
@@ -362,14 +397,11 @@ const MapApi = {
     } else {
       const cities = CostApi.cityList.filter(({ lat, lng }) => bounds.contains({ lat, lng }))
       for (let i = 0; i < 5; i++) {
-        // for (let city of cities) {
         setTimeout(() => {
-          console.log(i)
-          const { lat, lng, city_name, country_name } = cities.splice(Math.floor(Math.random() * cities.length), 1)[0]
-          MapApi.createMarker({ position: { lat, lng }, title: `${city_name},${country_name}` })
+          const { lat, lng, city_name, country_name, city_id } = cities.splice(Math.floor(Math.random() * cities.length), 1)[0]
+          MapApi.createMarker({ position: { lat, lng }, city_id, opacity: 0.5, zIndex: 0, title: `${city_name}, ${country_name}` })
         }, i * 200)
       }
-      console.log(bounds)
     }
 
   }
@@ -414,7 +446,7 @@ async function demo() {
    */
   let data = {}
   for (let city of GeoApi.results) {
-    data = await CostApi.getCityData(city)
+    data = await CostApi.getDataByGeoDb(city)
     if (!data.error) break
   }
   console.log('DEMO COST DATA', data)
