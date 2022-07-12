@@ -271,15 +271,17 @@ main > .row {
 
 
 
-/* .header-logo {
-.opacity {
+.header-logo {
+  display:flex;
+}
+  .opacity {
   background-color: rgba(249, 250, 249, 0.4);    /*  40% opaque green */ 
-  /* font-size: xx-large; */
+  font-size: xx-large;
 }
 .opacityLi {
   background-color: rgba(249, 250, 249, 0.4);
   width:30vw;    /*  40% opaque green */ 
-  /* font-size: xx-large; */
+  font-size: xx-large;
 }
 .logo {
   width: 5%;
