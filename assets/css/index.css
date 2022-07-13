@@ -1,17 +1,13 @@
-*, *::before, *::after {
-  margin-bottom:0;
-  padding-bottom:  0;
+
+.hero-image {
+  background-image: url("https://images.pexels.com/photos/9215626/pexels-photo-9215626.jpeg?cs=srgb&dl=pexels-lucas-pezeta-9215626.jpg&fm=jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
-/* Original Color Scheme */
-/* :root {
-  --blue: rgb(136, 182, 242);
-  --green: rgb(156, 217, 171);
-  --lightgreen: rgb(180, 217, 189);
-  --yellow: rgb(242, 202, 128);
-  --red: rgb(217, 86, 74);
-} */
-/* Tweaked Color Scheme */
 :root {
   /* Container Background */
   --blue: #42daff;
@@ -22,6 +18,7 @@
   /* Container Background and/ optional font color */
   --yellow: #f6d9a2;
   --red: #d9564a;
+  --gray: rgba(249, 250, 249, 0.4);
 }
 
 
@@ -30,11 +27,114 @@ Tinos -- Large Headers, Serif
 Source Sans Pro -- Midsize Headers, Sans Serif
 Pridi -- text, serif */
 
-
 body {
-  background-color: aliceblue;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* font-family: 'Pridi', serif; */
+  font-size: 16px;
 }
+
+h1 {
+  font-family: 'Tinos', serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+header h1 {
+  color: white;
+}
+
+main {
+  justify-content: flex-start;
+  width: 95%;
+  max-width: 1220px;
+}
+
+main .tabs {
+  height: 6em;
+  background-color: var(--gray);
+}
+main .tabs .indicator {
+  background-color: rgba(250,250,250,0.5);
+  height: 4px;
+}
+
+main .tabs .tab {
+  height: 6em;
+  border: 1px solid rgba(250,250,250,0.5)
+}
+
+main .tabs .tab a {
+  font-size: 3rem;
+  line-height: 2;
+  color: white;
+}
+
+main .tabs .tab a:hover,
+main .tabs .tab a.active {
+  color: white;
+}
+
+form.searchbar {
+  flex-basis: 100%;
+}
+
+.row .col.tab-target {
+  min-height: 20rem;
+  height: fit-content;
+  margin: 0 0.75em;
+  width: calc(100% - 1.5em);
+  padding: 0;
+  background-color: rgba(230,230,230,0.3);
+}
+
+nav .input-field label i {
+  color: var(--light-green);
+}
+nav .input-field label.active i {
+  color: var(--light-green);
+}
+
+.carousel-info .carousel-item {
+  font-size: 1.2em;
+  padding: 1rem;
+}
+.carousel-info .carousel-item li:not(:last-of-type) {
+  margin-bottom: 1rem
+}
+.carousel-info .carousel.carousel-slider .carousel-item h2 {
+  font-size: 2em;
+}
+.carousel-info .carousel.carousel-slider .carousel-item ul {
+  font-size: 1.1em;
+}
+.my-blue {
+  background-color: var(--blue);
+}
+.my-green {
+  background-color: var(--light-green);
+}
+.my-yellow {
+  background-color: var(--yellow);
+}
+.my-red {
+  background-color: var(--red);
+}
+
+
+.carousel-info .carousel .indicators .indicator-item {
+  background-color: rgb(120,120,120,0.3)
+}
+.carousel-info .carousel .indicators .indicator-item.active {
+  background-color: rgb(120,120,120,0.7)
+}
+
+
 
 /* Search bar */
 /* .city-search {
@@ -51,7 +151,7 @@ body {
 } */
 
 /* Added map section css */
-.map-card {
+/* .map-card {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -64,9 +164,9 @@ body {
   margin-right: 10px;
   border: solid;
   border-radius: 10px;
-}
+} */
 
- .exchange-container {
+ /* .exchange-container {
   display: flex;
   margin: auto;
   background-color: var(--yellow);
@@ -79,22 +179,19 @@ body {
   height: 150px;
   width: 150px;
 }
-
-#CityInfo .card {
+ */
+/* #CityInfo .card {
   height: 100%;
-}
+} */
 
 /* Added a container for the carousels. */
 .carousel-info {
   display: flex;
   flex-flow: row wrap;
+  gap: 5px;
   width: 100%;
-  /* float: left; */
-  /* margin-left: 20px;
-  margin-bottom: 10px;
-  margin-right: 10px; */
   padding: 24px;
-  /* border: solid; */
+
   border-radius: 10px;
 }
 
@@ -163,8 +260,7 @@ body {
 }
 
 .searchBar {
-  background-color: grey;
-  margin-top: 5%;
+  height: 100vh;
 }
 
 .resultsPanel {
@@ -188,26 +284,28 @@ body {
   
 }
 
-main {
-  width: 80vw;
-  margin-top:10px;
-
-  background-color: aliceblue;
+.collapsible-body{
+  padding: 0 !important;
+  margin: 0;
+  background-color: #D18258;
+  border-bottom: #D18258;
+}
+.collapsible-header{
+  padding:20;
 }
 
 .container {
-  background-color: var(--yellow);
+  padding: 0;
+  margin: 0;
 
 }
 
 .card {
-  background-color: white;
+  background-color: #D18258;
   padding:0;
-  margin-inline: 35px;
-}
-
-.header-image {
-  height: 100%;  
+  height:100%;
+  
+  
 }
 
 main > .row {
@@ -217,8 +315,9 @@ main > .row {
 .nav-wrapper:not(.city-search) {
   display: flex;
   justify-content: flex-start;
-  background-color: #2a2a72;
-  background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+  
+  /* background-color: #2a2a72;
+  background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%); */
 }
 
 .nav-wrapper p {
@@ -235,24 +334,49 @@ main > .row {
 } */
 
 #CityMap {
-  width: 100%;
-  height: 100%;
+  max-width: calc(100% - 1.5em);
+  min-height: 35rem;
+  margin: 0 0.75em;
 }
-#Demographics p {
+
+#CityInfo p {
   font-size: 1.2rem;
 }
-#Demographics p:not(:last-of-type) {
+#CityInfo p:not(:last-of-type) {
   margin-bottom: 0.5rem;
 }
 
 
 
-/* .header-logo {
-  width: 5%;
+.header-logo {
+  display:flex;
+}
+.opacity {
+  background-color: rgba(249, 250, 249, 0.4);    /*  40% opaque green */ 
+  font-size: xx-large;
+}
+.opacityLi {
+  background-color: rgba(249, 250, 249, 0.4);
+  width:30vw;    /*  40% opaque green */ 
+  font-size: xx-large;
+}
+.logo {
+  width: 8em;
   position: absolute;
   left:0;
   top: 0;
-} */
+}
+
+footer {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+footer ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
 
 /* Media query for the carousels */
 @media screen and (max-width: 600px) {
