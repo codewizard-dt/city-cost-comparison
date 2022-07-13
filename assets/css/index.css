@@ -85,7 +85,7 @@ form.searchbar {
 }
 
 .row .col.tab-target {
-  min-height: 20rem;
+  min-height: 35rem;
   height: fit-content;
   margin: 0 0.75em;
   width: calc(100% - 1.5em);
@@ -329,21 +329,28 @@ main > .row {
   margin-left: 10px;
 }
 
-  /* display: inline-block;
-  flex-direction: row;
-} */
-
 #CityMap {
   max-width: calc(100% - 1.5em);
   min-height: 35rem;
   margin: 0 0.75em;
 }
-
+#CityInfo {
+  padding: 1rem 2rem;
+}
 #CityInfo p {
   font-size: 1.2rem;
 }
 #CityInfo p:not(:last-of-type) {
   margin-bottom: 0.5rem;
+}
+#CityInfo iframe {
+  height: 50vh;
+  max-height: 500px;
+  opacity: 0.2;
+  transition: 200ms;
+}
+#CityInfo iframe:hover, #CityInfo iframe:active {
+  opacity: 1;
 }
 
 
