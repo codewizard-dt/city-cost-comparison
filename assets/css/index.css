@@ -1,7 +1,7 @@
 
 .hero-image {
   background-image: url("https://images.pexels.com/photos/9215626/pexels-photo-9215626.jpeg?cs=srgb&dl=pexels-lucas-pezeta-9215626.jpg&fm=jpg");
-  height: 100vh;
+  height: 150vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -73,13 +73,12 @@ main .tabs .tab a {
   font-size: 3rem;
   line-height: 2;
   color: white;
+  justify-content: center;
 }
-
 main .tabs .tab a:hover,
 main .tabs .tab a.active {
   color: white;
 }
-
 form.searchbar {
   flex-basis: 100%;
 }
@@ -90,7 +89,7 @@ form.searchbar {
   margin: 0 0.75em;
   width: calc(100% - 1.5em);
   padding: 0;
-  background-color: rgba(230,230,230,0.3);
+  background-color: none;
 }
 
 nav .input-field label i {
@@ -213,6 +212,7 @@ nav .input-field label.active i {
 .map-content {
   display: flex;
   flex-direction: row;
+  
 }
 
 .card-panel {
@@ -331,7 +331,7 @@ main > .row {
 
 #CityMap {
   max-width: calc(100% - 1.5em);
-  min-height: 35rem;
+  min-height: 16rem;
   margin: 0 0.75em;
 }
 #CityInfo {
