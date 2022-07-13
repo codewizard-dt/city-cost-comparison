@@ -85,7 +85,7 @@ form.searchbar {
 }
 
 .row .col.tab-target {
-  min-height: 35rem;
+  min-height: 15rem;
   height: fit-content;
   margin: 0 0.75em;
   width: calc(100% - 1.5em);
