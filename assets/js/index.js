@@ -10,6 +10,7 @@ $(document).ready(function () {
     fullWidth: true,
     indicators: true
   });
+  $('.modal').modal();
 
   /**
    * Checks cache and loads recently searched cities
@@ -25,7 +26,7 @@ $(document).ready(function () {
  */
 const GeoApi = {
   /** Default parameters for search */
-  params: { sort: '-population', limit: 10,type: "CITY" },
+  params: { sort: '-population', limit: 10, type: "CITY" },
   /** Merges params with defaults and stringifies */
   getParams: function (params = {}) {
     return Object.entries({ ...this.params, ...params }).map(([key, val]) => {
@@ -358,15 +359,15 @@ const CostApi = {
    * @param {string} category_name name of the category
    * @param {*} options 
    */
-  renderCarouselSlide: function (array, category_name, carouselEl) {
-    let slideEl = $(`<div class='carousel-item red' href="#one!"></div>`).appendTo(carouselEl)
-    slideEl.append(`<h3>${category_name}</h3><ul class='dataPoints'></ul>`)
+  renderCarouselSlide: function (array, category_name, carouselEl, class_name = '') {
+    let slideEl = $(`<div class='carousel-item ${class_name}' href="#one!"></div>`).appendTo(carouselEl)
+    slideEl.append(`<h2>${category_name}</h2><ul class='dataPoints'></ul>`)
     if (array.length) {
       for (let i = 0; i < 4; i++) {
         if (array.length === 0) break
         let item = array.splice(Math.floor(Math.random() * array.length), 1)[0]
         let { item_name, avg, usd = {}, measure, currency_code } = item
-        slideEl.find('ul').append(`<li class='white-text'>${item_name}: ${CostApi.formatCost(avg, measure, currency_code, usd.avg)}</li>`)
+        slideEl.find('ul').append(`<li>${item_name}: <b>${CostApi.formatCost(avg, measure, currency_code, usd.avg)}</b></li>`)
       }
     } else {
       slideEl.find('ul').replaceWith(`<div class='dataPoints'>We're currently researching this</div>`)
@@ -383,9 +384,9 @@ const CostApi = {
     let buy = this.getCostsByCategoryId(1)
     let salary = this.getCostsByCategoryId(7)
 
-    this.renderCarouselSlide(rent, 'Monthly Rent', carousel1)
-    this.renderCarouselSlide(buy, 'Buy an Apartment', carousel1)
-    this.renderCarouselSlide(salary, 'Salaries', carousel1)
+    this.renderCarouselSlide(rent, 'Monthly Rent', carousel1, 'my-blue')
+    this.renderCarouselSlide(buy, 'Buy an Apartment', carousel1, 'my-blue')
+    this.renderCarouselSlide(salary, 'Salaries', carousel1, 'my-blue')
 
     // Restaurant id = 6, Market id = 4, Market id = 4
     let carousel2 = $(`<div class='carousel carousel-slider center'></div>`).appendTo(containerEl)
@@ -393,9 +394,9 @@ const CostApi = {
     let market = this.getCostsByCategoryId(4)
     // let salary = this.getCostsByCategoryId(7)
 
-    this.renderCarouselSlide(restaurants, 'Restaurants', carousel2)
-    this.renderCarouselSlide(market, 'Commodoties', carousel2)
-    this.renderCarouselSlide(market, 'Commodoties', carousel2)
+    this.renderCarouselSlide(restaurants, 'Restaurants', carousel2, 'my-yellow')
+    this.renderCarouselSlide(market, 'Commodities', carousel2, 'my-yellow')
+    this.renderCarouselSlide(market, 'Commodities', carousel2, 'my-yellow')
 
     // Transpo id = 9, Utilities id = 10, Childcare id = 2
     let carousel3 = $(`<div class='carousel carousel-slider center'></div>`).appendTo(containerEl)
@@ -403,9 +404,9 @@ const CostApi = {
     let utilities = this.getCostsByCategoryId(10)
     let children = this.getCostsByCategoryId(2)
 
-    this.renderCarouselSlide(transpo, 'Transportation', carousel3)
-    this.renderCarouselSlide(utilities, 'Utilities', carousel3)
-    this.renderCarouselSlide(children, 'Child Care', carousel3)
+    this.renderCarouselSlide(transpo, 'Transportation', carousel3, 'my-green')
+    this.renderCarouselSlide(utilities, 'Utilities', carousel3, 'my-green')
+    this.renderCarouselSlide(children, 'Child Care', carousel3, 'my-green')
 
     /** Initializes all the new carousels */
     $('.carousel.carousel-slider').carousel({
@@ -415,12 +416,6 @@ const CostApi = {
   }
 }
 
-/**
- * Allows functionality on collapsible lists 
- * */
-$(document).ready(function(){
-  $('.collapsible').collapsible();
-});
 
 /**
  * Defines an API for Google Maps

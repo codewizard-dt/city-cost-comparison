@@ -3,7 +3,7 @@
 Find a city by name or by browsing the map then see demographic and cost of living data.
 [Deployed on Github Pages](https://codewizard-dt.github.io/city-cost-comparison/)
 
-## Demographics
+## CityInfo
 Utilized [GeoDb Cities API](https://rapidapi.com/wirefreethought/api/geodb-cities/) for comprehensive search functionality. This API gives geographic and demographic information.
 
 ## Cost of Living
