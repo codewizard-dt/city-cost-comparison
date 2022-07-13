@@ -48,6 +48,6 @@ function renderCityInfo(city) {
     <p><b>Population</b>: ${new Intl.NumberFormat('en-US').format(population)}</p>
     <p><b>Location</b>: (${latitude},${longitude})</p>
     ${renderExchangeRate(currency)}
-    <iframe src='https://www.wikidata.org/wiki/Special:EntityData/${wikiDataId}' width='100%' ></iframe>
+    
   `)
 }

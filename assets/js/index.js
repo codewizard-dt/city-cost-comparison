@@ -27,7 +27,7 @@ $(document).ready(function () {
 const GeoApi = {
   /** Default parameters for search */
   params: { sort: '-population', limit: 10, type: "CITY" },
-  /** Merges params with defaults and stringifies */
+  /** Merges params  th defaults and stringifies */
   getParams: function (params = {}) {
     return Object.entries({ ...this.params, ...params }).map(([key, val]) => {
       return key === 'location'
@@ -384,9 +384,9 @@ const CostApi = {
     let buy = this.getCostsByCategoryId(1)
     let salary = this.getCostsByCategoryId(7)
 
-    this.renderCarouselSlide(rent, 'Monthly Rent', carousel1, 'my-blue')
-    this.renderCarouselSlide(buy, 'Buy an Apartment', carousel1, 'my-blue')
-    this.renderCarouselSlide(salary, 'Salaries', carousel1, 'my-blue')
+    this.renderCarouselSlide(rent, 'Monthly Rent', carousel1, 'opacity')
+    this.renderCarouselSlide(buy, 'Buy an Apartment', carousel1, 'opacity')
+    this.renderCarouselSlide(salary, 'Salaries', carousel1, 'opacity')
 
     // Restaurant id = 6, Market id = 4, Market id = 4
     let carousel2 = $(`<div class='carousel carousel-slider center'></div>`).appendTo(containerEl)
@@ -394,9 +394,9 @@ const CostApi = {
     let market = this.getCostsByCategoryId(4)
     // let salary = this.getCostsByCategoryId(7)
 
-    this.renderCarouselSlide(restaurants, 'Restaurants', carousel2, 'my-yellow')
-    this.renderCarouselSlide(market, 'Commodities', carousel2, 'my-yellow')
-    this.renderCarouselSlide(market, 'Commodities', carousel2, 'my-yellow')
+    this.renderCarouselSlide(restaurants, 'Restaurants', carousel2, 'opacity')
+    this.renderCarouselSlide(market, 'Commodities', carousel2, 'opacity')
+    this.renderCarouselSlide(market, 'Commodities', carousel2, 'opacity')
 
     // Transpo id = 9, Utilities id = 10, Childcare id = 2
     let carousel3 = $(`<div class='carousel carousel-slider center'></div>`).appendTo(containerEl)
@@ -404,9 +404,9 @@ const CostApi = {
     let utilities = this.getCostsByCategoryId(10)
     let children = this.getCostsByCategoryId(2)
 
-    this.renderCarouselSlide(transpo, 'Transportation', carousel3, 'my-green')
-    this.renderCarouselSlide(utilities, 'Utilities', carousel3, 'my-green')
-    this.renderCarouselSlide(children, 'Child Care', carousel3, 'my-green')
+    this.renderCarouselSlide(transpo, 'Transportation', carousel3, 'opacity')
+    this.renderCarouselSlide(utilities, 'Utilities', carousel3, 'opacity')
+    this.renderCarouselSlide(children, 'Child Care', carousel3, 'opacity')
 
     /** Initializes all the new carousels */
     $('.carousel.carousel-slider').carousel({

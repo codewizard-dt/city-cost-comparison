@@ -90,7 +90,7 @@ form.searchbar {
   margin: 0 0.75em;
   width: calc(100% - 1.5em);
   padding: 0;
-  background-color: rgba(230,230,230,0.3);
+  background-color: none;
 }
 
 nav .input-field label i {
@@ -98,6 +98,9 @@ nav .input-field label i {
 }
 nav .input-field label.active i {
   color: var(--light-green);
+}
+.carousel {
+  color:white;
 }
 
 .carousel-info .carousel-item {
@@ -128,7 +131,7 @@ nav .input-field label.active i {
 
 
 .carousel-info .carousel .indicators .indicator-item {
-  background-color: rgb(120,120,120,0.3)
+  background-color: rgba(249, 245, 245, 0.991)
 }
 .carousel-info .carousel .indicators .indicator-item.active {
   background-color: rgb(120,120,120,0.7)
@@ -331,7 +334,7 @@ main > .row {
 
 #CityMap {
   max-width: calc(100% - 1.5em);
-  min-height: 35rem;
+  min-height: 15rem;
   margin: 0 0.75em;
 }
 #CityInfo {
