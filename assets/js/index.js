@@ -141,7 +141,10 @@ const GeoApi = {
           localStorage.setItem('city_id', costData.city_id)
           /** Directs user to `results.html` if they are not already on the page */
           if (!url.includes('results.html')) document.location.href = 'results.html'
-          else if (typeof setCity !== 'undefined') setCity(costData.city_id, true)
+          else if (typeof setCity !== 'undefined') {
+            M.Tabs.getInstance(document.querySelector('.tabs')).select('CityMap')
+            setCity(costData.city_id, true)
+          }
         }
       })
   },

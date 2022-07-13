@@ -19,6 +19,8 @@ async function setCity(city_id, renderCachedList = false) {
   if (renderCachedList) GeoApi.renderCachedResults()
 }
 
+M.Tabs.getInstance(document.querySelector('.tabs')).select('CityInfo')
+
 /** Displays all the demographic and cost of living data for the given city */
 function loadCityInformation(city) {
   $('#ResultsHeader').text(`${city.city_name}, ${city.geo.region}, ${city.country_name}`)
@@ -28,7 +30,6 @@ function loadCityInformation(city) {
   const { latitude: lat, longitude: lng } = city.geo || { latitude: 0, longitude: 0 }
   /** Defines the `google.maps.MarkerOptions` for the given city */
   const marker = { position: { lat, lng }, title: `${city.city_name}, ${city.geo.region}, ${city.country_name}` }
-
   MapApi.renderMap(document.getElementById('CityMap'), { lat, lng }, [marker])
   MapApi.renderNearbyCities()
   /** Renders new carousels with the cost of living data from `CostApi` */
