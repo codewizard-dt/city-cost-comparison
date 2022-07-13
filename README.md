@@ -20,12 +20,14 @@ Both the GeoDB and Cost API are cached in local storage.
 - [jQuery](https://jquery.com/)
 - [Google Fonts](https://fonts.google.com/)
 
-TODO: Add screen shot
+# App Demo
 
+![Full City Comparison Demo](./assets/City-Comp-Demo.gif)
 
 images from:
-https://stocksnap.io/
-https://burst.shopify.com/
-https://unsplash.com/
+- https://stocksnap.io/
+- https://burst.shopify.com/
+- https://unsplash.com/
+
 logo from:
-https://placeit.net
+- https://placeit.net
