@@ -415,7 +415,9 @@ const CostApi = {
     });
   }
 }
-
+$(document).ready(function(){
+  $('.collapsible').collapsible();
+});
 
 /**
  * Defines an API for Google Maps
